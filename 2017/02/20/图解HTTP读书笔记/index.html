@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>许朵儿</title>
+  <title>图解 HTTP 读书笔记 | 许朵儿</title>
 
   
   <meta name="author" content="xu-duo">
@@ -14,12 +14,15 @@
   
 
   
+  
+  <meta name="keywords" content="">
+  
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="图解 HTTP 读书笔记"/>
 
   <meta property="og:site_name" content="许朵儿"/>
 
@@ -59,12 +62,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/2017/02/20/图解HTTP读书笔记/"><span>图解 HTTP 读书笔记</span></a></h3>
+    <h3 class="article-title"><span>图解 HTTP 读书笔记</span></h3>
     
   
 
@@ -188,181 +190,34 @@
     </div>
 
     
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/02/20/图解HTTP读书笔记/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
   </div>
 </article>
 
-
-
-  <article>
-
   
-    
-    <h3 class="article-title"><a href="/2017/02/08/“用Hexo搭建自己的博客”/"><span>用Hexo搭建自己的博客</span></a></h3>
-    
-  
+	<div id="comment">
+		
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/02/20/图解HTTP读书笔记/" data-title="图解 HTTP 读书笔记" data-url="http://yoursite.com/2017/02/20/图解HTTP读书笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xu-duo"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/02/08/“用Hexo搭建自己的博客”/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-08T11:56:33.000Z">
-          2017-02-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>写下这篇文章记录一下我的博客搭建过程及遇到的问题，开始吧。</p>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>首先要有自己的 github 账号，并在 github 上创建一个仓库，名为 xxx.github.io。 </p>
-<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>其次是在电脑上安装有 Node.js 和 git，我使用的电脑是 windows 系统，Node.js 的安装及使用教程参考官网 <a href="http://nodejs.cn/" target="_blank" rel="external"><code>nodejs</code></a>。Git 的安装及使用教程参考廖雪峰的教程 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external"><code>Git教程链接</code></a>。或者参考hexo的官方文档 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external"><code>docs</code></a>。</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>下载安装 hexo，官方文档链接同上。安装完成之后，会在本地生成一个 Hexo 文件夹。选择主题，去 hexo 的主题网站<a href="https://hexo.io/themes/" target="_blank" rel="external"><code>themes</code></a>选择自己喜欢的主题。我选择的是 <a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="external"><code>Hacker</code></a> 主题，从 github 上下载到本地，放到 hexo 文件夹 themes 下，然后根据自己的需求，进行修改。</p>
-<ul>
-<li>修改配置文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#25991;&#20214;: _config.yml</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>打开配置文件后，填写title、description、author、language等内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title: &#10;subtitle:&#10;description: &#10;author: &#10;language:</span><br></pre></td></tr></table></figure></p>
-<p>修改主题为：Hacker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: Hacker</span><br></pre></td></tr></table></figure></p>
-<p>修改自己的仓库地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repository: https://github.com/xxx/xxx.github.io&#10;  branch: master</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<ul>
-<li>启动本地服务</li>
-</ul>
-<p>修改好配置后在命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<p>会在 hexo 目录下生成 public 文件夹，文件夹内为博客布局所需的各种文件，生成静态网页。</p>
-<p>运行，输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
-<p>后出现 INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop. 在浏览器中打开 localhost:4000 就可以看到主题的显示了。</p>
-<ul>
-<li>添加 About 页面  </li>
-</ul>
-<p>由于该主题没有 about 页面，需自己手动添加 about 页面，在 themes 文件夹中找到配置文件并打开，在 <code>Archives: /archives</code> 下方添加 <code>About: /about</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">menu:&#10;  Home: /&#10;  Archives: /archives&#10;  About: /about   &#20026;&#26032;&#28155;&#21152;&#39033;</span><br></pre></td></tr></table></figure></p>
-<p>在命令行中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new about</span><br></pre></td></tr></table></figure></p>
-<p>命令，即可在 hexo 目录下的 source 文件夹中创建 about 文件夹，文件名为 index.md ，在此文件中可编辑自己所需的内容。</p>
-<ul>
-<li>修改主题样式</li>
-</ul>
-<p>在 themes 文件夹中的 Hacker 文件夹中找到对应的 <code>layout/components/xx.ejs</code> 的文件，及 <code>source/css/components/xx.styl</code> 的文件进行修改，即可得到自己所需的样式。</p>
-<ul>
-<li>写文章  </li>
-</ul>
-<p>在命令行中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new xxx</span><br></pre></td></tr></table></figure></p>
-<p>其中 xxx 为文章标题，即可在 hexo 目录下的 source 文件夹中的 _posts 文件夹中生成 xxx.md 文件，在其中进行编辑即可。</p>
-<ul>
-<li>注：</li>
-</ul>
-<p>若在运行过程中，修改样式效果未显示，可能是产生了缓存，在命令行中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></p>
-<p>会清除生成的数据及 public 文件夹。再重新运行即可。<br><br></p>
-<h2 id="u63D0_u4EA4_u5230_github"><a href="#u63D0_u4EA4_u5230_github" class="headerlink" title="提交到 github"></a>提交到 github</h2><p>命令行中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<p>后会出现提示，再输入用户名及密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Username for &#39;https://github.com&#39;: &#36755;&#20837;&#29992;&#25143;&#21517;&#10;Password for &#39;https://xxx@github.com&#39;: &#36755;&#20837;&#23494;&#30721;</span><br></pre></td></tr></table></figure></p>
-<p>代码即提交到 github 上，在浏览器中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://xxx.github.io/</span><br></pre></td></tr></table></figure></p>
-<p>博客就出现了。<br><br></p>
-<h2 id="u51FA_u73B0_u7684_u95EE_u9898"><a href="#u51FA_u73B0_u7684_u95EE_u9898" class="headerlink" title="出现的问题"></a>出现的问题</h2><p>我是用的是 windows 系统，在搭建博客过程中出现了如下问题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F:\Hexo&#62;hexo d&#10;&#10;INFO Deploying: git&#10;INFO Clearing .deploy folder...&#10;INFO Copying files from public folder...&#10;events.js:141&#10;&#9;throw er: //Unhandled &#39;error&#39; event&#10;&#10;Error: spawn git ENOENT&#10;&#9;at exports._errnoException (util.js:870:11)&#10;&#9;at Process.ChildProcess._handle.onexit (internal/child_process.js:178:32)&#10;&#9;at onErrorNT (internal/child_process.js:344:17)&#10;&#9;at doNTCallback2 (node.js:441:9)&#10;&#9;at process._tickCallback (node.js:355:17)</span><br></pre></td></tr></table></figure>
-<p>通过尝试，得出以下解决方案：设置 git 的 path<br>先在 git 的安装目录中找到 <code>xxx/git/bin</code> 及 <code>xxx/git/libexec/git-core</code> 文件。(xxx 为 git 安装盘目录)<br>再在 <code>计算机右键-属性-高级系统设置-环境变量-系统变量-path-编辑-新建</code><br>将以上两个路径复制添加到变量中，点击确定；重启电脑，重新运行，后提交，成功！！！</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/02/08/“用Hexo搭建自己的博客”/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/02/07/hello-world/"><span>Hello World</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/02/07/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T11:56:33.000Z">
-          2017-02-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Hello World，这是我的博客，也是我的第一篇文章！！！</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/02/07/hello-world/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
+	</div>
 
 
 
 
-<nav class="pagination">
-  
-  
-</nav>
     </main>
 
     <footer class="site-footer">
