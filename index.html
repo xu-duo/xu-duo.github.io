@@ -64,6 +64,83 @@
 
   
     
+    <h3 class="article-title"><a href="/2017/03/06/webpack学习笔记-小demo/"><span>webpack学习笔记-小demo</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/03/06/webpack学习笔记-小demo/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-03-06T06:04:26.000Z">
+          2017-03-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Webpack 官方网站 <a href="https://webpack.github.io/docs/" target="_blank" rel="external"><code>Webpack</code></a>、<a href="https://github.com/webpack/webpack" target="_blank" rel="external"><code>github</code></a>地址。</p>
+<h2 id="Webpack__u5B89_u88C5"><a href="#Webpack__u5B89_u88C5" class="headerlink" title="Webpack 安装"></a>Webpack 安装</h2><p>对于 windows 系统，先要进行全局安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure></p>
+<p>创建自己为项目文件夹 webpack-demo ，然后初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init    //&#22312; webpack-demo &#25991;&#20214;&#30446;&#24405;&#19979;&#29983;&#25104; package.json &#30340;&#37197;&#32622;&#25991;&#20214;</span><br></pre></td></tr></table></figure></p>
+<p>在文件目录下安装局域的 webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack --save-dev  //&#29983;&#25104; node_modules &#25991;&#20214;&#22841;</span><br></pre></td></tr></table></figure></p>
+<h2 id="u521B_u5EFA_u6587_u4EF6"><a href="#u521B_u5EFA_u6587_u4EF6" class="headerlink" title="创建文件"></a>创建文件</h2><p>创建源文件夹 src，放置项目需要的 css、img、js 文件；创建 dist 文件夹，放置打包后生成的文件。<br>目录如下：<br><img src="/1.png" alt=""></p>
+<h4 id="index-html__u6587_u4EF6"><a href="#index-html__u6587_u4EF6" class="headerlink" title="index.html 文件"></a>index.html 文件</h4><p>在 webpack-demo 目录下创建 index.html 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!DOCTYPE html&#62;&#10;  &#60;html lang=&#34;en&#34;&#62;&#10;  &#60;head&#62;&#10;      &#60;meta charset=&#34;UTF-8&#34;&#62;&#10;      &#60;title&#62;webpack-demo &#20223;Bootstrap&#20013;&#25991;&#32593;&#60;/title&#62;&#10;  &#60;/head&#62;&#10;  &#60;body&#62;&#10;  &#60;/body&#62;&#10;  &#60;/html&#62;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u914D_u7F6E_u6587_u4EF6"><a href="#u914D_u7F6E_u6587_u4EF6" class="headerlink" title="配置文件"></a>配置文件</h4><p>在 webpack-demo 目录下创建 webpack.config.js 文件。<br>创建项目入口文件 main.js 放在 src/script 文件目录下。配置 webpack.config.js 文件相关参数。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;&#10;  entry: &#39;./src/script/main.js&#39;,    //&#20837;&#21475;&#25991;&#20214;&#10;  output: &#123;&#10;      path: &#39;./dist&#39;,               //&#29983;&#25104;&#25991;&#20214;&#25918;&#32622;&#30446;&#24405;&#10;      filename: &#39;js/[name].js&#39;&#9;  //&#29983;&#25104;&#30340;js&#25991;&#20214;&#21517;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>为了使生成的 js 文件自动插入到 打包后的 html 文件中，借助插件 html-webpack-plugin 完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>在配置文件中引入插件，并配置参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);&#10;&#10;  plugins: [&#10;        new HtmlWebpackPlugin(&#123; &#10;            filename:&#39;index.html&#39;,            //&#25171;&#21253;&#21518;&#29983;&#25104;&#30340; html &#25991;&#20214;&#21517;&#10;            template: &#39;index.html&#39;,           //&#20351;&#26681;&#30446;&#24405;&#19979;&#24341;&#29992;&#30340;&#20869;&#23481;&#34987;&#25171;&#21253;&#21518;&#30340;html&#24341;&#29992;&#10;            inject: &#39;body&#39;                    //&#29983;&#25104;&#30340; js &#25554;&#20837;&#21040; html &#30340; body &#20013;&#10;        &#125;)&#10;  ]</span><br></pre></td></tr></table></figure></p>
+<h4 id="css__u6587_u4EF6"><a href="#css__u6587_u4EF6" class="headerlink" title="css 文件"></a>css 文件</h4><p>创建样式文件 style.css 放在 src/css 目录下。<br>使用 webpack 加载 css 样式。安装 css-loader、style-loader。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>配置webpack.config.js 文件相关参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;&#10;      loaders: [&#10;          &#123;&#10;              test: /\.css$/,&#10;              loader: &#39;style-loader!css-loader&#39;&#10;          &#125;&#10;      ]&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>入口文件 main.js 中引入css。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&#39;../css/style.css&#39;);</span><br></pre></td></tr></table></figure></p>
+<p>运行 webpack，生成的 css 文件会以 <code>&lt;style type=&quot;text/css&quot;&gt;...&lt;/style&gt;</code> 形式插入到 html 的头部。</p>
+<p>若要 css 文件单独打包，安装插件 extract-text-webpack-plugin。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install extract-text-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>配置webpack.config.js 文件，引入插件，并修改 loaders 中的相关参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> var ExtractTextPlugin = require(&#34;extract-text-webpack-plugin&#34;);&#10;&#10; module: &#123;&#10;       loaders: [&#10;           test: /\.css$/,&#10;               loader: ExtractTextPlugin.extract(&#123;&#10;                   fallback: &#39;style-loader&#39;,&#10;                   use: &#39;css-loader&#39;&#10;               &#125;)&#10;       ]&#10; &#125;&#10;&#10;plugins: [&#10;       new HtmlWebpackPlugin(&#123; &#10;           filename:&#39;index.html&#39;,            //&#25171;&#21253;&#21518;&#29983;&#25104;&#30340; html &#25991;&#20214;&#21517;&#10;           template: &#39;index.html&#39;,           //&#20351;&#26681;&#30446;&#24405;&#19979;&#24341;&#29992;&#30340;&#20869;&#23481;&#34987;&#25171;&#21253;&#21518;&#30340;html&#24341;&#29992;&#10;           inject: &#39;body&#39;                    //&#29983;&#25104;&#30340; js &#25554;&#20837;&#21040; html &#30340; body &#20013;&#10;       &#125;)&#65292;&#10;&#10;       new ExtractTextPlugin(&#39;css/[name].css&#39;)  &#10;]</span><br></pre></td></tr></table></figure>
+<p>运行 webpack 即可在 dist 目录下生成 css/main.css 文件，并以 link 标签形式插入到 html 头部。</p>
+<h4 id="u56FE_u7247"><a href="#u56FE_u7247" class="headerlink" title="图片"></a>图片</h4><p>使用 url-loader（但图片大小小于某一指定大小时，图片会被转换为 base64 编码）或 file-loader（处理图片/文件）。对图片压缩 image-webpack-loader 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev&#10;npm install file-loader --save-dev&#10;npm install image-webpack-loader --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>webpack.config.js 文件配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;    test: /\.(png|jpg|gif|svg)$/i,&#10;    loaders: [&#10;    &#39;file-loader?name=img/[name]-[hash:5].[ext]&#39;,     //&#22788;&#29702;&#22270;&#29255;&#25991;&#20214;&#10;&#10;    //&#39;url-loader?limit=20000&#38;name=img/[name]-[hash:5].[ext]&#39;,       &#10;          //&#25110;&#20351;&#29992;url-loader&#65292;&#24403;&#22270;&#29255;&#22823;&#23567;&#23567;&#20110;&#26576;&#19968;&#20010;&#20540;&#36716;&#25442;&#20026;base64&#32534;&#30721;,&#22823;&#20110;&#35813;&#20540;&#20132;&#30001; file-loader &#22788;&#29702;&#10;&#10;    &#39;image-webpack-loader&#39;      //&#20351;&#29992;&#25991;&#20214;&#21387;&#32553;&#10;    ]&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于 html 中的图片加载，还需要安装 html-loader。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html-loader --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;    test: /\.html$/,&#10;    loader: &#39;html-loader&#39;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就是我的 demo 创建过程。最终目录结构如下：<br><img src="/2.png" alt=""><br>github 代码地址 <a href="https://github.com/xu-duo/webpack-demo" target="_blank" rel="external"><code>webpack-demo</code></a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2017/03/06/webpack学习笔记-小demo/#comment">评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/02/20/图解HTTP读书笔记/"><span>图解 HTTP 读书笔记</span></a></h3>
     
   
